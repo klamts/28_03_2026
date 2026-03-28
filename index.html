@@ -1,0 +1,1941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Favorites ⭐ English Fun!</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #FFD93D;
+    --orange: #FF6B35;
+    --pink: #FF6FA8;
+    --purple: #A855F7;
+    --blue: #3B82F6;
+    --teal: #06B6D4;
+    --green: #22C55E;
+    --red: #EF4444;
+    --bg: #FFF9F0;
+    --card: #ffffff;
+    --text: #1e1b4b;
+    --shadow: 0 8px 32px rgba(0,0,0,0.10);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  /* Animated stars background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: 
+      radial-gradient(circle at 10% 20%, rgba(255,217,61,0.15) 0%, transparent 40%),
+      radial-gradient(circle at 90% 80%, rgba(168,85,247,0.12) 0%, transparent 40%),
+      radial-gradient(circle at 50% 50%, rgba(59,130,246,0.08) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Floating stars */
+  .stars { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+  .star {
+    position: absolute;
+    font-size: 1.2rem;
+    animation: floatStar linear infinite;
+    opacity: 0.4;
+  }
+
+  @keyframes floatStar {
+    0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.5; }
+    90% { opacity: 0.4; }
+    100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 2.5rem 1rem 1.5rem;
+    background: linear-gradient(135deg, #667eea 0%, #f64f59 100%);
+    clip-path: ellipse(110% 100% at 50% 0%);
+    padding-bottom: 3.5rem;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 0.35rem 1.1rem;
+    border-radius: 50px;
+    margin-bottom: 0.7rem;
+    border: 2px solid rgba(255,255,255,0.4);
+    backdrop-filter: blur(6px);
+  }
+
+  .hero h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(2.4rem, 7vw, 4.5rem);
+    color: #fff;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    line-height: 1.1;
+    letter-spacing: 1px;
+  }
+
+  .hero h1 span {
+    color: var(--yellow);
+    display: block;
+  }
+
+  .hero-emoji { font-size: 2.5rem; margin-bottom: 0.5rem; display: block; animation: bounce 1.5s infinite; }
+  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+
+  /* TABS */
+  .tabs-wrapper {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1.5rem 1rem 0;
+    flex-wrap: wrap;
+  }
+
+  .tab-btn {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1rem;
+    padding: 0.65rem 1.4rem;
+    border-radius: 50px;
+    border: 3px solid transparent;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(.34,1.56,.64,1);
+    background: #fff;
+    color: #6b7280;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    white-space: nowrap;
+  }
+
+  .tab-btn:hover { transform: translateY(-3px) scale(1.05); }
+
+  .tab-btn.active-1 { background: linear-gradient(135deg,#667eea,#764ba2); color:#fff; border-color:#667eea; box-shadow:0 6px 20px rgba(102,126,234,0.4); transform:translateY(-3px) scale(1.05); }
+  .tab-btn.active-2 { background: linear-gradient(135deg,#f093fb,#f5576c); color:#fff; border-color:#f5576c; box-shadow:0 6px 20px rgba(245,87,108,0.4); transform:translateY(-3px) scale(1.05); }
+  .tab-btn.active-3 { background: linear-gradient(135deg,#4facfe,#00f2fe); color:#fff; border-color:#4facfe; box-shadow:0 6px 20px rgba(79,172,254,0.4); transform:translateY(-3px) scale(1.05); }
+  .tab-btn.active-4 { background: linear-gradient(135deg,#f7971e,#ffd200); color:#1e1b4b; border-color:#f7971e; box-shadow:0 6px 20px rgba(247,151,30,0.45); transform:translateY(-3px) scale(1.05); }
+
+  /* SECTIONS */
+  .section {
+    position: relative;
+    z-index: 1;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 1.2rem 3rem;
+    display: none;
+  }
+  .section.active { display: block; animation: fadeInUp 0.5s ease; }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.9rem;
+    text-align: center;
+    margin-bottom: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  /* ===== PART 1: VOCABULARY ===== */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .vocab-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 1.2rem 1.3rem;
+    box-shadow: var(--shadow);
+    border: 3px solid transparent;
+    transition: all 0.3s cubic-bezier(.34,1.56,.64,1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .vocab-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .vocab-card:hover { transform: translateY(-6px) scale(1.02); }
+
+  /* Color themes for cards */
+  .vc-0 { border-color: #FFD93D22; } .vc-0::before { background: linear-gradient(90deg,#FFD93D,#FF6B35); }
+  .vc-1 { border-color: #FF6FA822; } .vc-1::before { background: linear-gradient(90deg,#FF6FA8,#f064a0); }
+  .vc-2 { border-color: #A855F722; } .vc-2::before { background: linear-gradient(90deg,#A855F7,#7C3AED); }
+  .vc-3 { border-color: #3B82F622; } .vc-3::before { background: linear-gradient(90deg,#3B82F6,#06B6D4); }
+  .vc-4 { border-color: #22C55E22; } .vc-4::before { background: linear-gradient(90deg,#22C55E,#16A34A); }
+  .vc-5 { border-color: #EF444422; } .vc-5::before { background: linear-gradient(90deg,#EF4444,#FF6B35); }
+  .vc-6 { border-color: #06B6D422; } .vc-6::before { background: linear-gradient(90deg,#06B6D4,#3B82F6); }
+  .vc-7 { border-color: #F59E0B22; } .vc-7::before { background: linear-gradient(90deg,#F59E0B,#EF4444); }
+  .vc-8 { border-color: #10B98122; } .vc-8::before { background: linear-gradient(90deg,#10B981,#06B6D4); }
+  .vc-9 { border-color: #8B5CF622; } .vc-9::before { background: linear-gradient(90deg,#8B5CF6,#EC4899); }
+  .vc-10{ border-color: #EC489922; } .vc-10::before{ background: linear-gradient(90deg,#EC4899,#F43F5E); }
+  .vc-11{ border-color: #F97316 22; } .vc-11::before{ background: linear-gradient(90deg,#F97316,#EAB308); }
+  .vc-12{ border-color: #14B8A622; } .vc-12::before{ background: linear-gradient(90deg,#14B8A6,#3B82F6); }
+  .vc-13{ border-color: #6366F122; } .vc-13::before{ background: linear-gradient(90deg,#6366F1,#A855F7); }
+
+  .vocab-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .vocab-img {
+    width: 72px;
+    height: 72px;
+    border-radius: 14px;
+    object-fit: cover;
+    flex-shrink: 0;
+    background: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    border: 2px solid #e5e7eb;
+  }
+
+  .vocab-img img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; display: none; }
+  .vocab-img img.loaded { display: block; }
+  .vocab-img.no-img { background: linear-gradient(135deg, #f0f4ff, #e0e7ff); }
+
+  .vocab-info { flex: 1; }
+
+  .vocab-word {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.4rem;
+    color: var(--text);
+    line-height: 1.2;
+  }
+
+  .vocab-ipa {
+    font-size: 0.82rem;
+    color: #7c3aed;
+    font-weight: 700;
+    background: #f3e8ff;
+    display: inline-block;
+    padding: 0.1rem 0.5rem;
+    border-radius: 6px;
+    margin: 0.25rem 0;
+    font-family: monospace;
+    letter-spacing: 0.5px;
+  }
+
+  .vocab-audio-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.3rem;
+  }
+
+  .play-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: linear-gradient(135deg,#667eea,#764ba2);
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.75rem;
+    font-weight: 800;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    transition: all 0.2s;
+    box-shadow: 0 3px 10px rgba(102,126,234,0.3);
+  }
+  .play-btn:hover { transform: scale(1.08); box-shadow: 0 5px 16px rgba(102,126,234,0.45); }
+  .play-btn:active { transform: scale(0.97); }
+  .play-btn svg { width: 12px; height: 12px; fill: currentColor; }
+
+  .play-btn.playing {
+    background: linear-gradient(135deg,#f093fb,#f5576c);
+    animation: pulse 0.8s infinite;
+  }
+  @keyframes pulse { 0%,100%{box-shadow:0 3px 10px rgba(245,87,108,0.3)} 50%{box-shadow:0 5px 20px rgba(245,87,108,0.6)} }
+
+  .audio-filename {
+    font-size: 0.68rem;
+    color: #9ca3af;
+    font-family: monospace;
+  }
+
+  .vocab-example {
+    background: linear-gradient(135deg,#f8faff,#f0f4ff);
+    border-radius: 12px;
+    padding: 0.7rem 0.9rem;
+    border-left: 4px solid #a5b4fc;
+    margin-top: 0.8rem;
+  }
+
+  .vocab-example-label {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: #6366f1;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.2rem;
+  }
+
+  .vocab-example p {
+    font-size: 0.88rem;
+    color: #374151;
+    line-height: 1.5;
+    font-weight: 600;
+  }
+
+  .example-audio-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .play-btn-ex {
+    background: linear-gradient(135deg,#22C55E,#16A34A);
+    box-shadow: 0 3px 10px rgba(34,197,94,0.3);
+  }
+  .play-btn-ex:hover { box-shadow: 0 5px 16px rgba(34,197,94,0.45); }
+
+  /* ===== PART 2: Q&A ===== */
+  .qa-intro {
+    text-align: center;
+    background: linear-gradient(135deg,#ffecd2,#fcb69f);
+    border-radius: 20px;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    color: #7c2d12;
+    font-weight: 700;
+    box-shadow: 0 4px 16px rgba(252,182,159,0.4);
+  }
+
+  .qa-list { display: flex; flex-direction: column; gap: 1.2rem; }
+
+  .qa-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 2px solid #e5e7eb;
+    transition: all 0.3s;
+  }
+  .qa-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
+
+  .qa-question-block {
+    background: linear-gradient(135deg,#667eea,#764ba2);
+    padding: 1rem 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+  }
+
+  .qa-q-icon {
+    width: 36px; height: 36px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Fredoka One', cursive;
+    color: #fff;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    border: 2px solid rgba(255,255,255,0.4);
+  }
+
+  .qa-q-text {
+    color: #fff;
+    font-size: 0.98rem;
+    font-weight: 700;
+    flex: 1;
+    line-height: 1.4;
+  }
+
+  .qa-answer-block {
+    padding: 1rem 1.3rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+    background: #fafafa;
+  }
+
+  .qa-a-icon {
+    width: 36px; height: 36px;
+    background: linear-gradient(135deg,#22C55E,#16A34A);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Fredoka One', cursive;
+    color: #fff;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .qa-a-content { flex: 1; }
+
+  .qa-a-text {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1e1b4b;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+  }
+
+  .qa-audio-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .play-btn-q { background: linear-gradient(135deg,#f093fb,#f5576c); box-shadow: 0 3px 10px rgba(245,87,108,0.3); }
+  .play-btn-a { background: linear-gradient(135deg,#4facfe,#00f2fe); color:#1e1b4b; box-shadow: 0 3px 10px rgba(79,172,254,0.3); }
+
+  /* ===== PART 3: PASSAGE ===== */
+  .passage-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .passage-header p {
+    color: #6b7280;
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+
+  .passage-box {
+    background: #fff;
+    border-radius: 24px;
+    padding: 2rem 2rem;
+    box-shadow: var(--shadow);
+    border: 2px solid #e5e7eb;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .passage-box::before {
+    content: '📖';
+    position: absolute;
+    top: -20px; right: -20px;
+    font-size: 6rem;
+    opacity: 0.04;
+    transform: rotate(15deg);
+  }
+
+  .passage-sentence {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding: 0.7rem 0.5rem;
+    border-radius: 12px;
+    transition: background 0.2s;
+    margin-bottom: 0.3rem;
+  }
+  .passage-sentence:hover { background: #f8f9ff; }
+
+  .ps-audio { flex-shrink: 0; margin-top: 2px; }
+
+  .play-btn-p {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg,#4facfe,#00f2fe);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(79,172,254,0.35);
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+  .play-btn-p:hover { transform: scale(1.15); box-shadow: 0 5px 16px rgba(79,172,254,0.5); }
+  .play-btn-p svg { width: 13px; height: 13px; fill: #fff; }
+  .play-btn-p.playing { background: linear-gradient(135deg,#f093fb,#f5576c); animation: pulse 0.8s infinite; }
+
+  .ps-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #374151;
+    font-weight: 600;
+  }
+
+  .ps-text strong { color: var(--purple); }
+
+  .passage-divider {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #e5e7eb, transparent);
+    margin: 0.3rem 0;
+  }
+
+  /* Progress bar */
+  .progress-bar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 4px;
+    background: linear-gradient(90deg,#FFD93D,#FF6B35,#FF6FA8,#A855F7);
+    z-index: 100;
+    transition: width 0.3s;
+    width: 0%;
+    border-radius: 0 4px 4px 0;
+  }
+
+  /* Confetti burst */
+  .confetti-container { position: fixed; inset: 0; pointer-events: none; z-index: 999; }
+
+  /* Tooltip for filename */
+  .filename-tag {
+    font-size: 0.65rem;
+    color: #9ca3af;
+    font-family: monospace;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    padding: 0.05rem 0.4rem;
+    white-space: nowrap;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .vocab-grid { grid-template-columns: 1fr; }
+    .passage-box { padding: 1.2rem 1rem; }
+    .ps-text { font-size: 0.9rem; }
+  }
+
+  /* Fun tooltip */
+  .tip-bubble {
+    display: none;
+    position: absolute;
+    background: #1e1b4b;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.3rem 0.7rem;
+    border-radius: 8px;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    z-index: 10;
+    pointer-events: none;
+  }
+  .tip-bubble::after { content:''; position:absolute; top:100%; left:50%; transform:translateX(-50%); border:5px solid transparent; border-top-color:#1e1b4b; }
+  .play-btn:hover .tip-bubble, .play-btn-p:hover .tip-bubble { display: block; }
+
+  .vocab-num {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.4rem;
+    opacity: 0.08;
+    color: #000;
+  }
+
+  /* Word type tag */
+  .word-type {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.1rem 0.45rem;
+    border-radius: 6px;
+    background: #fef3c7;
+    color: #92400e;
+    margin-left: 0.3rem;
+    vertical-align: middle;
+  }
+
+  .tab-icon { margin-right: 0.3rem; }
+
+  /* ===== VIETNAMESE TOGGLE ===== */
+  .vn-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: linear-gradient(135deg, #f59e0b, #ef4444);
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 0.28rem 0.75rem;
+    font-size: 0.72rem;
+    font-weight: 800;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    transition: all 0.2s cubic-bezier(.34,1.56,.64,1);
+    box-shadow: 0 3px 10px rgba(239,68,68,0.3);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .vn-toggle-btn:hover { transform: scale(1.08); box-shadow: 0 5px 14px rgba(239,68,68,0.45); }
+  .vn-toggle-btn:active { transform: scale(0.96); }
+  .vn-toggle-btn .vn-flag { font-size: 0.85rem; }
+  .vn-toggle-btn.active {
+    background: linear-gradient(135deg, #10b981, #059669);
+    box-shadow: 0 3px 10px rgba(16,185,129,0.35);
+  }
+
+  /* Vietnamese text display */
+  .vn-text {
+    display: none;
+    font-size: 0.82rem;
+    color: #b45309;
+    font-weight: 700;
+    font-style: italic;
+    background: linear-gradient(135deg, #fffbeb, #fef3c7);
+    border-left: 3px solid #f59e0b;
+    border-radius: 0 8px 8px 0;
+    padding: 0.35rem 0.7rem;
+    margin-top: 0.4rem;
+    line-height: 1.5;
+    animation: fadeSlideIn 0.25s ease;
+  }
+  .vn-text.show { display: block; }
+
+  @keyframes fadeSlideIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* VN for Q&A question block (dark bg) */
+  .vn-text-q {
+    display: none;
+    font-size: 0.82rem;
+    color: #fde68a;
+    font-weight: 700;
+    font-style: italic;
+    background: rgba(255,255,255,0.12);
+    border-left: 3px solid #fde68a;
+    border-radius: 0 8px 8px 0;
+    padding: 0.3rem 0.7rem;
+    margin-top: 0.4rem;
+    line-height: 1.5;
+    animation: fadeSlideIn 0.25s ease;
+  }
+  .vn-text-q.show { display: block; }
+
+  /* VN for Q&A answer block */
+  .vn-text-a {
+    display: none;
+    font-size: 0.82rem;
+    color: #065f46;
+    font-weight: 700;
+    font-style: italic;
+    background: linear-gradient(135deg,#ecfdf5,#d1fae5);
+    border-left: 3px solid #10b981;
+    border-radius: 0 8px 8px 0;
+    padding: 0.3rem 0.7rem;
+    margin-top: 0.4rem;
+    line-height: 1.5;
+    animation: fadeSlideIn 0.25s ease;
+  }
+  .vn-text-a.show { display: block; }
+
+  /* VN for passage */
+  .vn-text-p {
+    display: none;
+    font-size: 0.82rem;
+    color: #7c3aed;
+    font-weight: 700;
+    font-style: italic;
+    background: linear-gradient(135deg,#faf5ff,#ede9fe);
+    border-left: 3px solid #a855f7;
+    border-radius: 0 8px 8px 0;
+    padding: 0.28rem 0.6rem;
+    margin-top: 0.3rem;
+    line-height: 1.5;
+    animation: fadeSlideIn 0.25s ease;
+  }
+  .vn-text-p.show { display: block; }
+
+  /* Passage sentence layout updated */
+  .ps-content { flex: 1; }
+
+  /* VN toggle btn small circle for passage */
+  .vn-btn-p {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+    background: linear-gradient(135deg,#f59e0b,#ef4444);
+    color: #fff;
+    border: none;
+    border-radius: 14px;
+    padding: 0.18rem 0.55rem;
+    font-size: 0.65rem;
+    font-weight: 800;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    transition: all 0.2s;
+    box-shadow: 0 2px 8px rgba(239,68,68,0.3);
+    margin-top: 0.3rem;
+    white-space: nowrap;
+  }
+  .vn-btn-p:hover { transform: scale(1.08); }
+  .vn-btn-p.active { background: linear-gradient(135deg,#10b981,#059669); box-shadow: 0 2px 8px rgba(16,185,129,0.35); }
+
+  /* ===== PART 4: GRAMMAR ===== */
+  .grammar-list { display: flex; flex-direction: column; gap: 1.5rem; }
+
+  .gram-card {
+    background: #fff;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 6px 28px rgba(0,0,0,0.09);
+    border: 2px solid #e5e7eb;
+    transition: transform 0.3s cubic-bezier(.34,1.56,.64,1);
+  }
+  .gram-card:hover { transform: translateY(-4px); }
+
+  .gram-header {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 1rem 1.3rem 0.9rem;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .gram-icon {
+    width: 40px; height: 40px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+
+  .gram-title-block { flex: 1; }
+
+  .gram-label {
+    font-size: 0.68rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.15rem;
+  }
+
+  .gram-focus {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.05rem;
+    line-height: 1.3;
+    color: var(--text);
+  }
+
+  .gram-focus em {
+    font-style: normal;
+    padding: 0.05rem 0.4rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+  }
+
+  .gram-toggle-icon {
+    font-size: 1.1rem;
+    transition: transform 0.3s;
+    color: #9ca3af;
+    flex-shrink: 0;
+  }
+  .gram-card.open .gram-toggle-icon { transform: rotate(180deg); }
+
+  .gram-body {
+    display: none;
+    padding: 0 1.3rem 1.3rem;
+    border-top: 1px dashed #e5e7eb;
+    animation: fadeInUp 0.3s ease;
+  }
+  .gram-card.open .gram-body { display: block; }
+
+  .gram-section {
+    margin-top: 1rem;
+  }
+
+  .gram-section-title {
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.45rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .gram-explain {
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: #374151;
+    font-weight: 600;
+  }
+
+  .gram-explain .hl-word {
+    font-weight: 800;
+    padding: 0.05rem 0.35rem;
+    border-radius: 5px;
+  }
+
+  .gram-example-box {
+    background: linear-gradient(135deg,#f8faff,#f0f4ff);
+    border-radius: 12px;
+    padding: 0.8rem 1rem;
+    border-left: 4px solid #a5b4fc;
+    margin-top: 0.6rem;
+  }
+
+  .gram-example-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.35rem;
+  }
+  .gram-example-row:last-child { margin-bottom: 0; }
+
+  .gram-ex-text {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #1e1b4b;
+    flex: 1;
+    line-height: 1.5;
+  }
+
+  .gram-ex-vn {
+    font-size: 0.8rem;
+    color: #92400e;
+    font-style: italic;
+    font-weight: 600;
+    padding-left: 0.5rem;
+    border-left: 2px solid #fcd34d;
+    margin-top: 0.2rem;
+    line-height: 1.5;
+  }
+
+  .play-btn-g {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: linear-gradient(135deg,#f7971e,#ffd200);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(247,151,30,0.35);
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+  .play-btn-g:hover { transform: scale(1.15); }
+  .play-btn-g svg { width: 12px; height: 12px; fill: #1e1b4b; }
+  .play-btn-g.playing { background: linear-gradient(135deg,#f093fb,#f5576c); animation: pulse 0.8s infinite; }
+  .play-btn-g.playing svg { fill: #fff; }
+
+  .gram-structure-box {
+    background: linear-gradient(135deg,#fefce8,#fef9c3);
+    border-radius: 12px;
+    padding: 0.7rem 1rem;
+    border-left: 4px solid #eab308;
+    margin-top: 0.6rem;
+    font-family: monospace;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #78350f;
+    line-height: 1.7;
+  }
+
+  .gram-note {
+    background: linear-gradient(135deg,#fff7ed,#ffedd5);
+    border-radius: 10px;
+    padding: 0.6rem 0.9rem;
+    border-left: 4px solid #f97316;
+    margin-top: 0.6rem;
+    font-size: 0.83rem;
+    font-weight: 700;
+    color: #9a3412;
+    line-height: 1.6;
+  }
+
+  .gram-tag {
+    display: inline-block;
+    font-size: 0.62rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.1rem 0.45rem;
+    border-radius: 6px;
+    margin-right: 0.3rem;
+    vertical-align: middle;
+  }
+
+  .gram-audio-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  /* color themes for gram cards */
+  .gc-0 .gram-header { background: linear-gradient(135deg,#667eea15,#764ba215); }
+  .gc-0 .gram-icon { background: linear-gradient(135deg,#667eea,#764ba2); }
+  .gc-0 .gram-label { color: #667eea; }
+  .gc-0 .gram-focus em { background: #ede9fe; color: #6d28d9; }
+
+  .gc-1 .gram-header { background: linear-gradient(135deg,#f59e0b15,#ef444415); }
+  .gc-1 .gram-icon { background: linear-gradient(135deg,#f59e0b,#ef4444); }
+  .gc-1 .gram-label { color: #d97706; }
+  .gc-1 .gram-focus em { background: #fef3c7; color: #92400e; }
+
+  .gc-2 .gram-header { background: linear-gradient(135deg,#10b98115,#06b6d415); }
+  .gc-2 .gram-icon { background: linear-gradient(135deg,#10b981,#06b6d4); }
+  .gc-2 .gram-label { color: #059669; }
+  .gc-2 .gram-focus em { background: #d1fae5; color: #065f46; }
+
+  .gc-3 .gram-header { background: linear-gradient(135deg,#f093fb15,#f5576c15); }
+  .gc-3 .gram-icon { background: linear-gradient(135deg,#f093fb,#f5576c); }
+  .gc-3 .gram-label { color: #db2777; }
+  .gc-3 .gram-focus em { background: #fce7f3; color: #9d174d; }
+
+  .gc-4 .gram-header { background: linear-gradient(135deg,#4facfe15,#00f2fe15); }
+  .gc-4 .gram-icon { background: linear-gradient(135deg,#4facfe,#00f2fe); }
+  .gc-4 .gram-label { color: #0284c7; }
+  .gc-4 .gram-focus em { background: #e0f2fe; color: #075985; }
+
+  .gc-5 .gram-header { background: linear-gradient(135deg,#a855f715,#7c3aed15); }
+  .gc-5 .gram-icon { background: linear-gradient(135deg,#a855f7,#7c3aed); }
+  .gc-5 .gram-label { color: #7c3aed; }
+  .gc-5 .gram-focus em { background: #ede9fe; color: #5b21b6; }
+
+  .gc-6 .gram-header { background: linear-gradient(135deg,#22c55e15,#16a34a15); }
+  .gc-6 .gram-icon { background: linear-gradient(135deg,#22c55e,#16a34a); }
+  .gc-6 .gram-label { color: #15803d; }
+  .gc-6 .gram-focus em { background: #dcfce7; color: #14532d; }
+
+  .gc-7 .gram-header { background: linear-gradient(135deg,#f7971e15,#ffd20015); }
+  .gc-7 .gram-icon { background: linear-gradient(135deg,#f7971e,#ffd200); }
+  .gc-7 .gram-label { color: #b45309; }
+  .gc-7 .gram-focus em { background: #fefce8; color: #713f12; }
+
+  .gc-8 .gram-header { background: linear-gradient(135deg,#3b82f615,#6366f115); }
+  .gc-8 .gram-icon { background: linear-gradient(135deg,#3b82f6,#6366f1); }
+  .gc-8 .gram-label { color: #2563eb; }
+  .gc-8 .gram-focus em { background: #dbeafe; color: #1e3a8a; }
+
+  .gc-9 .gram-header { background: linear-gradient(135deg,#ec489915,#f43f5e15); }
+  .gc-9 .gram-icon { background: linear-gradient(135deg,#ec4899,#f43f5e); }
+  .gc-9 .gram-label { color: #be185d; }
+  .gc-9 .gram-focus em { background: #fdf2f8; color: #831843; }
+
+  .gc-10 .gram-header { background: linear-gradient(135deg,#14b8a615,#06b6d415); }
+  .gc-10 .gram-icon { background: linear-gradient(135deg,#14b8a6,#06b6d4); }
+  .gc-10 .gram-label { color: #0f766e; }
+  .gc-10 .gram-focus em { background: #ccfbf1; color: #134e4a; }
+
+  .gc-11 .gram-header { background: linear-gradient(135deg,#8b5cf615,#a855f715); }
+  .gc-11 .gram-icon { background: linear-gradient(135deg,#8b5cf6,#a855f7); }
+  .gc-11 .gram-label { color: #6d28d9; }
+  .gc-11 .gram-focus em { background: #ede9fe; color: #4c1d95; }
+
+  .gc-12 .gram-header { background: linear-gradient(135deg,#f9731615,#eab30815); }
+  .gc-12 .gram-icon { background: linear-gradient(135deg,#f97316,#eab308); }
+  .gc-12 .gram-label { color: #c2410c; }
+  .gc-12 .gram-focus em { background: #fff7ed; color: #7c2d12; }
+
+  .gc-13 .gram-header { background: linear-gradient(135deg,#6366f115,#8b5cf615); }
+  .gc-13 .gram-icon { background: linear-gradient(135deg,#6366f1,#8b5cf6); }
+  .gc-13 .gram-label { color: #4338ca; }
+  .gc-13 .gram-focus em { background: #e0e7ff; color: #312e81; }
+
+  .gc-14 .gram-header { background: linear-gradient(135deg,#10b98115,#22c55e15); }
+  .gc-14 .gram-icon { background: linear-gradient(135deg,#10b981,#22c55e); }
+  .gc-14 .gram-label { color: #047857; }
+  .gc-14 .gram-focus em { background: #d1fae5; color: #064e3b; }
+
+  .gc-15 .gram-header { background: linear-gradient(135deg,#ef444415,#f9731615); }
+  .gc-15 .gram-icon { background: linear-gradient(135deg,#ef4444,#f97316); }
+  .gc-15 .gram-label { color: #b91c1c; }
+  .gc-15 .gram-focus em { background: #fee2e2; color: #7f1d1d; }
+
+  .gc-16 .gram-header { background: linear-gradient(135deg,#0ea5e915,#06b6d415); }
+  .gc-16 .gram-icon { background: linear-gradient(135deg,#0ea5e9,#06b6d4); }
+  .gc-16 .gram-label { color: #0369a1; }
+  .gc-16 .gram-focus em { background: #e0f2fe; color: #0c4a6e; }
+
+  .gc-17 .gram-header { background: linear-gradient(135deg,#d946ef15,#a855f715); }
+  .gc-17 .gram-icon { background: linear-gradient(135deg,#d946ef,#a855f7); }
+  .gc-17 .gram-label { color: #a21caf; }
+  .gc-17 .gram-focus em { background: #fdf4ff; color: #701a75; }
+
+  .gc-18 .gram-header { background: linear-gradient(135deg,#65a30d15,#16a34a15); }
+  .gc-18 .gram-icon { background: linear-gradient(135deg,#65a30d,#16a34a); }
+  .gc-18 .gram-label { color: #4d7c0f; }
+  .gc-18 .gram-focus em { background: #f7fee7; color: #365314; }
+
+  .gc-19 .gram-header { background: linear-gradient(135deg,#0891b215,#0e7490 15); }
+  .gc-19 .gram-icon { background: linear-gradient(135deg,#0891b2,#0e7490); }
+  .gc-19 .gram-label { color: #0e7490; }
+  .gc-19 .gram-focus em { background: #cffafe; color: #164e63; }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+<div class="stars" id="stars"></div>
+<div class="confetti-container" id="confettiContainer"></div>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-emoji">⭐</span>
+  <div class="hero-badge">English with Fun!</div>
+  <h1>My <span>Favorites</span></h1>
+</div>
+
+<!-- TABS -->
+<div class="tabs-wrapper">
+  <button class="tab-btn active-1" onclick="showSection(1, this)">
+    <span class="tab-icon">📚</span>Part 1: Words
+  </button>
+  <button class="tab-btn" onclick="showSection(2, this)">
+    <span class="tab-icon">💬</span>Part 2: Talk!
+  </button>
+  <button class="tab-btn" onclick="showSection(3, this)">
+    <span class="tab-icon">📖</span>Part 3: Story
+  </button>
+  <button class="tab-btn" onclick="showSection(4, this)">
+    <span class="tab-icon">🔍</span>Part 4: Grammar
+  </button>
+</div>
+
+<!-- =========== PART 4: GRAMMAR =========== -->
+<section class="section" id="section4">
+  <h2 class="section-title" style="color:#f7971e">🔍 Grammar Tips! <span style="font-family:'Nunito';font-size:1rem;color:#9ca3af;font-weight:700;">– Learn How English Works</span></h2>
+  <div style="text-align:center;background:linear-gradient(135deg,#fff7ed,#fef3c7);border-radius:20px;padding:1rem 1.5rem;margin-bottom:1.5rem;font-size:0.95rem;color:#92400e;font-weight:700;box-shadow:0 4px 16px rgba(247,151,30,0.2)">
+    🎯 Bấm vào mỗi thẻ để xem giải thích chi tiết! Click each card to learn!
+  </div>
+  <div class="grammar-list" id="grammarList"></div>
+</section>
+
+<!-- =========== PART 1: VOCABULARY =========== -->
+<section class="section active" id="section1">
+  <h2 class="section-title" style="color:#667eea">📚 Vocabulary <span style="font-family:'Nunito';font-size:1rem;color:#9ca3af;font-weight:700;">– Learn New Words!</span></h2>
+
+  <div class="vocab-grid" id="vocabGrid"></div>
+</section>
+
+<!-- =========== PART 2: Q&A =========== -->
+<section class="section" id="section2">
+  <h2 class="section-title" style="color:#f5576c">💬 Talk About It! <span style="font-family:'Nunito';font-size:1rem;color:#9ca3af;font-weight:700;">– Practice Speaking</span></h2>
+
+  <div class="qa-intro">
+    🎙️ Listen to the questions and answers, then practice with a friend!
+  </div>
+
+  <div class="qa-list" id="qaList"></div>
+</section>
+
+<!-- =========== PART 3: PASSAGE =========== -->
+<section class="section" id="section3">
+  <h2 class="section-title" style="color:#4facfe">📖 Reading Time! <span style="font-family:'Nunito';font-size:1rem;color:#9ca3af;font-weight:700;">– A Story About Fairy Tales</span></h2>
+
+  <div class="passage-header">
+    <p>🎧 Click the play button next to each sentence to listen!</p>
+  </div>
+
+  <div class="passage-box" id="passageBox"></div>
+</section>
+
+<script>
+// ============ DATA ============
+const vocab = [
+  { word: "Amazing",   type: "adj",  ipa: "/əˈmeɪzɪŋ/",   img: "1.jpg",  audio: "part1/1.wav",  vnWord: "Tuyệt vời, kinh ngạc",    example: "JK Rowling writes amazing books.",              exAudio: "part1/2.wav",  vnExample: "JK Rowling viết những cuốn sách tuyệt vời." },
+  { word: "Famous",    type: "adj",  ipa: "/ˈfeɪməs/",     img: "2.jpg",  audio: "part1/3.wav",  vnWord: "Nổi tiếng",               example: "I want to be famous one day.",                 exAudio: "part1/4.wav",  vnExample: "Tôi muốn trở nên nổi tiếng vào một ngày nào đó." },
+  { word: "Cool",      type: "adj",  ipa: "/kuːl/",        img: "3.jpg",  audio: "part1/5.wav",  vnWord: "Tuyệt, ngầu",             example: "This movie is so cool. I love action.",        exAudio: "part1/6.wav",  vnExample: "Bộ phim này thật tuyệt. Tôi thích phim hành động." },
+  { word: "An actor",  type: "noun", ipa: "/ən ˈæktər/",   img: "4.jpg",  audio: "part1/7.wav",  vnWord: "Diễn viên (nam)",         example: "He is a well-known actor in Hollywood.",       exAudio: "part1/8.wav",  vnExample: "Anh ấy là một diễn viên nổi tiếng ở Hollywood." },
+  { word: "Popular",   type: "adj",  ipa: "/ˈpɒpjʊlər/",  img: "5.jpg",  audio: "part1/9.wav",  vnWord: "Phổ biến, được yêu thích",example: "Harry Potter books are very popular.",          exAudio: "part1/10.wav", vnExample: "Những cuốn sách Harry Potter rất phổ biến." },
+  { word: "Talented",  type: "adj",  ipa: "/ˈtæləntɪd/",  img: "6.jpg", audio: "part1/11.wav", vnWord: "Có tài năng",             example: "Mozart was a talented composer.",               exAudio: "part1/12.wav", vnExample: "Mozart là một nhạc sĩ sáng tác tài năng." },
+  { word: "Funny",     type: "adj",  ipa: "/ˈfʌni/",      img: "7.jpg", audio: "part1/13.wav", vnWord: "Buồn cười, hài hước",     example: "That was a really funny movie.",               exAudio: "part1/14.wav", vnExample: "Đó là một bộ phim thật sự buồn cười." },
+  { word: "A movie",   type: "noun", ipa: "/ə ˈmuːvi/",   img: "8.jpg", audio: "part1/15.wav", vnWord: "Một bộ phim",             example: "I really liked that movie.",                   exAudio: "part1/16.wav", vnExample: "Tôi thật sự thích bộ phim đó." },
+  { word: "A person",  type: "noun", ipa: "/ə ˈpɜːrsən/", img: "9.jpg", audio: "part1/17.wav", vnWord: "Một người",               example: "My grandpa is a really interesting person.",   exAudio: "part1/18.wav", vnExample: "Ông tôi là một người thật sự thú vị." },
+  { word: "Brave",     type: "adj",  ipa: "/breɪv/",      img: "10.jpg", audio: "part1/19.wav", vnWord: "Dũng cảm",                example: "Firefighters are very brave.",                 exAudio: "part1/20.wav", vnExample: "Những người lính cứu hỏa rất dũng cảm." },
+  { word: "Pretty",    type: "adj",  ipa: "/ˈprɪti/",     img: "11.jpg", audio: "part1/21.wav", vnWord: "Xinh đẹp (nữ)",           example: "My mom's a very pretty woman.",                exAudio: "part1/22.wav", vnExample: "Mẹ tôi là một người phụ nữ rất xinh đẹp." },
+  { word: "Handsome",  type: "adj",  ipa: "/ˈhænsəm/",    img: "12.jpg", audio: "part1/23.wav", vnWord: "Đẹp trai, điển trai (nam)",example: "He is a very handsome man.",                  exAudio: "part1/24.wav", vnExample: "Anh ấy là một người đàn ông rất điển trai." },
+  { word: "An athlete",type: "noun", ipa: "/ən ˈæθliːt/", img: "13.jpg", audio: "part1/25.wav", vnWord: "Vận động viên",           example: "LeBron James is a great athlete.",             exAudio: "part1/26.wav", vnExample: "LeBron James là một vận động viên xuất sắc." },
+  { word: "Great",     type: "adj",  ipa: "/ɡreɪt/",      img: "14.jpg", audio: "part1/27.wav", vnWord: "Vĩ đại, xuất sắc",       example: "Picasso was a great painter.",                 exAudio: "part1/28.wav", vnExample: "Picasso là một họa sĩ vĩ đại." },
+  { word: "Wonderful", type: "adj",  ipa: "/ˈwʌndərfəl/", img: "15.jpg", audio: "part1/29.wav", vnWord: "Tuyệt vời, kỳ diệu",     example: "Your photos from the museum are wonderful.",   exAudio: "part1/30.wav", vnExample: "Những bức ảnh từ bảo tàng của bạn thật tuyệt vời." },
+];
+
+const qaPairs = [
+  {
+    q: "What kind of stories do you enjoy?",         qVn: "Bạn thích loại truyện nào?",
+    qAudio: "part2/1.wav",
+    a: "I like traditional stories. They're exciting!", aVn: "Tôi thích những câu chuyện truyền thống. Chúng thật thú vị!",
+    aAudio: "part2/2.wav", emoji: "📚"
+  },
+  {
+    q: "Who is your favorite actor or actress?",     qVn: "Diễn viên yêu thích của bạn là ai?",
+    qAudio: "part2/3.wav",
+    a: "My favorite actor is very handsome and talented. He's amazing in action movies!", aVn: "Diễn viên yêu thích của tôi rất điển trai và tài năng. Anh ấy tuyệt vời trong các phim hành động!",
+    aAudio: "part2/4.wav", emoji: "🎬"
+  },
+  {
+    q: "What makes a movie great?",                  qVn: "Điều gì làm cho một bộ phim hay?",
+    qAudio: "part2/5.wav",
+    a: "A great movie has funny characters and a brave hero. It's popular with everyone!", aVn: "Một bộ phim hay có những nhân vật hài hước và một người hùng dũng cảm. Nó được mọi người yêu thích!",
+    aAudio: "part2/6.wav", emoji: "🎥"
+  },
+  {
+    q: "Do you know any famous athletes?",           qVn: "Bạn có biết vận động viên nổi tiếng nào không?",
+    qAudio: "part2/7.wav",
+    a: "Yes! LeBron James is a great athlete. He's amazing and very popular!", aVn: "Có! LeBron James là một vận động viên xuất sắc. Anh ấy tuyệt vời và rất nổi tiếng!",
+    aAudio: "part2/8.wav", emoji: "🏀"
+  },
+  {
+    q: "Describe your favorite book or movie character.", qVn: "Hãy mô tả nhân vật yêu thích của bạn trong sách hoặc phim.",
+    qAudio: "part2/9.wav",
+    a: "My favorite character is wonderful, brave, and pretty. She's a talented and cool person!", aVn: "Nhân vật yêu thích của tôi thật kỳ diệu, dũng cảm và xinh đẹp. Cô ấy là người tài năng và ngầu!",
+    aAudio: "part2/10.wav", emoji: "✨"
+  },
+  {
+    q: "What kind of person do you want to be when you grow up?", qVn: "Bạn muốn trở thành người như thế nào khi lớn lên?",
+    qAudio: "part2/11.wav",
+    a: "I want to be a famous actor — funny, handsome, and wonderful!", aVn: "Tôi muốn trở thành một diễn viên nổi tiếng — hài hước, điển trai và tuyệt vời!",
+    aAudio: "part2/12.wav", emoji: "🌟"
+  },
+];
+
+const passage = [
+  { text: "Think about your favorite fairy tale.",                                                                   audio: "part3/1.wav",  vn: "Hãy nghĩ về câu chuyện cổ tích yêu thích của bạn." },
+  { text: "It's probably a wonderful story, but do you know where it came from?",                                    audio: "part3/2.wav",  vn: "Đó có lẽ là một câu chuyện tuyệt vời, nhưng bạn có biết nó xuất phát từ đâu không?" },
+  { text: "The first fairy tales were not written down.",                                                             audio: "part3/3.wav",  vn: "Những câu chuyện cổ tích đầu tiên không được viết lại." },
+  { text: "One person simply told a story to other people, then they told it to others.",                             audio: "part3/4.wav",  vn: "Một người chỉ đơn giản kể một câu chuyện cho người khác, rồi họ lại kể cho người khác nữa." },
+  { text: "In 1812, the talented brothers Jacob and Wilhelm Grimm wrote a book of the old fairy tales.",             audio: "part3/5.wav",  vn: "Năm 1812, hai anh em tài năng Jacob và Wilhelm Grimm đã viết một cuốn sách về những câu chuyện cổ tích cũ." },
+  { text: "They called their book Children's Tales.",                                                                audio: "part3/6.wav",  vn: "Họ đặt tên cuốn sách là Chuyện Kể Cho Trẻ Em." },
+  { text: "But some readers weren't happy.",                                                                         audio: "part3/7.wav",  vn: "Nhưng một số độc giả không hài lòng." },
+  { text: "The stories were too scary for children.",                                                                audio: "part3/8.wav",  vn: "Những câu chuyện quá đáng sợ đối với trẻ em." },
+  { text: "So later on, the Grimm Brothers wrote a different book.",                                                 audio: "part3/9.wav",  vn: "Vì vậy, sau đó hai anh em Grimm đã viết một cuốn sách khác." },
+  { text: "The stories were exciting but not scary.",                                                                audio: "part3/10.wav", vn: "Những câu chuyện thú vị nhưng không đáng sợ." },
+  { text: "It was very popular.",                                                                                    audio: "part3/11.wav", vn: "Nó rất phổ biến." },
+  { text: "After that, many other writers in different countries wrote down fairy tales.",                            audio: "part3/12.wav", vn: "Sau đó, nhiều nhà văn khác ở các quốc gia khác nhau đã viết lại các câu chuyện cổ tích." },
+  { text: "In 1937, there was a movie of the fairy tale Snow White and the Seven Dwarfs.",                           audio: "part3/13.wav", vn: "Năm 1937, có một bộ phim về câu chuyện cổ tích Bạch Tuyết và Bảy Chú Lùn." },
+  { text: "Many people enjoyed it.",                                                                                  audio: "part3/14.wav", vn: "Nhiều người rất thích bộ phim đó." },
+  { text: "Other movies based on fairy tales followed.",                                                             audio: "part3/15.wav", vn: "Những bộ phim khác dựa trên truyện cổ tích tiếp tục ra đời." },
+  { text: "Famous actors enjoyed speaking characters' lines.",                                                       audio: "part3/16.wav", vn: "Những diễn viên nổi tiếng thích đọc lời thoại của các nhân vật." },
+  { text: "Many of these movies have the same kinds of characters.",                                                 audio: "part3/17.wav", vn: "Nhiều bộ phim trong số này có cùng kiểu nhân vật." },
+  { text: "Often there's a princess and a prince.",                                                                  audio: "part3/18.wav", vn: "Thường có một công chúa và một hoàng tử." },
+  { text: "The princess is usually pretty and the prince is usually handsome and brave.",                            audio: "part3/19.wav", vn: "Công chúa thường xinh đẹp và hoàng tử thường điển trai và dũng cảm." },
+  { text: "There's always a happy ending.",                                                                          audio: "part3/20.wav", vn: "Luôn luôn có một kết thúc có hậu." },
+  { text: "But times have changed.",                                                                                 audio: "part3/21.wav", vn: "Nhưng thời đại đã thay đổi." },
+  { text: "Now authors are rewriting the traditional tales with a twist.",                                           audio: "part3/22.wav", vn: "Bây giờ các tác giả đang viết lại những câu chuyện truyền thống với một sự thay đổi bất ngờ." },
+  { text: "The characters in these new stories surprise us.",                                                        audio: "part3/23.wav", vn: "Những nhân vật trong các câu chuyện mới này khiến chúng ta ngạc nhiên." },
+  { text: "Maybe the princess isn't pretty, but she's smart, funny, and cool.",                                     audio: "part3/24.wav", vn: "Có thể công chúa không xinh đẹp, nhưng cô ấy thông minh, hài hước và ngầu." },
+  { text: "Is she looking for a prince?",                                                                            audio: "part3/25.wav", vn: "Cô ấy có đang tìm kiếm một hoàng tử không?" },
+  { text: "No, she wants to do amazing things.",                                                                     audio: "part3/26.wav", vn: "Không, cô ấy muốn làm những điều tuyệt vời." },
+  { text: "She rides a motorbike or she's a great athlete, perhaps.",                                               audio: "part3/27.wav", vn: "Cô ấy lái xe máy hoặc có thể là một vận động viên xuất sắc." },
+  { text: "Both types of stories, traditional and modern, are great.",                                              audio: "part3/28.wav", vn: "Cả hai loại câu chuyện, truyền thống và hiện đại, đều tuyệt vời." },
+  { text: "Which do you prefer?",                                                                                    audio: "part3/29.wav", vn: "Bạn thích loại nào hơn?" },
+];
+
+
+const wordEmojis = {
+  "Amazing": "🤩", "Famous": "⭐", "Cool": "😎", "An actor": "🎭",
+  "Popular": "💫", "Talented": "🎨", "Funny": "😂", "A movie": "🎬",
+  "A person": "👤", "Brave": "🦁", "Pretty": "🌸", "Handsome": "😍",
+  "An athlete": "🏆", "Great": "🌟", "Wonderful": "✨"
+};
+
+// ============ GRAMMAR DATA ============
+const grammarItems = [
+  {
+    icon: "💡", label: "Cụm từ & Nghĩa",
+    focus: `<em>It's probably</em> — Có lẽ đó là...`,
+    audio: "g1.wav",
+    sections: [
+      {
+        title: "📖 Giải thích", color: "#667eea",
+        text: `<span class="hl-word" style="background:#ede9fe;color:#6d28d9">It's probably</span> = <strong>It is probably</strong> = "Có lẽ đó là..." / "Có thể đó là..."<br><br>
+<span class="hl-word" style="background:#fef3c7;color:#92400e">probably</span> là <strong>trạng từ (adverb)</strong> — đứng <strong>trước tính từ hoặc động từ chính</strong> để nói lên sự <em>chắc chắn khoảng 70-90%</em>.`
+      },
+      {
+        title: "🔧 Công thức", color: "#f59e0b",
+        structure: `It + is/was + probably + [tính từ / danh từ / mệnh đề]\nSubject + probably + [động từ]`
+      },
+      {
+        title: "✏️ Ví dụ", color: "#10b981",
+        examples: [
+          { en: "It's probably a wonderful story.", vn: "Đó có lẽ là một câu chuyện tuyệt vời.", audio: "part4/1.wav" },
+          { en: "She's probably at home now.", vn: "Cô ấy có lẽ đang ở nhà bây giờ.", audio: "part4/2.wav" },
+          { en: "He probably likes movies.", vn: "Anh ấy có lẽ thích phim.", audio: "part4/3.wav" },
+        ]
+      },
+      {
+        title: "⚠️ Lưu ý", color: "#f97316",
+        note: `<strong>probably</strong> (70-90%) · <strong>maybe / perhaps</strong> (50%) · <strong>certainly</strong> (99%)<br>Ví dụ: <em>Maybe she's tired. / It's certainly true.</em>`
+      }
+    ]
+  },
+  {
+    icon: "📜", label: "Danh từ",
+    focus: `<em>The first fairy tales</em> — Những câu chuyện cổ tích đầu tiên`,
+    audio: "g2.wav",
+    sections: [
+      {
+        title: "📖 Giải thích", color: "#f59e0b",
+        text: `<span class="hl-word" style="background:#fef3c7;color:#92400e">fairy tale</span> = <strong>truyện cổ tích</strong> (danh từ ghép: fairy = tiên, tale = câu chuyện)<br><br>
+<span class="hl-word" style="background:#fef3c7;color:#92400e">The first</span> = <strong>đầu tiên</strong> — dùng <strong>The</strong> vì đề cập đến một nhóm xác định cụ thể (những câu chuyện cổ tích đầu tiên trong lịch sử).`
+      },
+      {
+        title: "✏️ Ví dụ", color: "#10b981",
+        examples: [
+          { en: "The first fairy tales were very old.", vn: "Những câu chuyện cổ tích đầu tiên rất cổ xưa.", audio: "part4/4.wav" },
+          { en: "Do you know any fairy tales?", vn: "Bạn có biết câu chuyện cổ tích nào không?", audio: "part4/5.wav" },
+        ]
+      }
+    ]
+  },
+  {
+    icon: "🚫", label: "Thì quá khứ bị động phủ định",
+    focus: `<em>were not written down</em> — không được viết lại`,
+    audio: "g3.wav",
+    sections: [
+      {
+        title: "📖 Giải thích", color: "#10b981",
+        text: `Đây là <strong>câu bị động (passive voice)</strong> ở <strong>thì quá khứ đơn (past simple)</strong>, dạng <strong>phủ định</strong>.<br><br>
+<span class="hl-word" style="background:#d1fae5;color:#065f46">were not written</span> = "không được viết (bởi ai đó)"<br>
+<span class="hl-word" style="background:#d1fae5;color:#065f46">down</span> = tiểu từ bổ nghĩa → <strong>write down</strong> = viết xuống / ghi lại<br><br>
+Dùng <strong>were</strong> vì chủ ngữ là số nhiều (<em>fairy tales</em>).`
+      },
+      {
+        title: "🔧 Công thức bị động", color: "#f59e0b",
+        structure: `[Subject] + was/were + NOT + past participle (+ by...)\nThe first fairy tales + were + not + written down`
+      },
+      {
+        title: "✏️ Ví dụ", color: "#10b981",
+        examples: [
+          { en: "The first fairy tales were not written down.", vn: "Những câu chuyện cổ tích đầu tiên không được viết lại.", audio: "part4/6.wav" },
+          { en: "The homework was not done.", vn: "Bài tập đã không được làm.", audio: "part4/7.wav" },
+          { en: "The songs were not recorded.", vn: "Các bài hát đã không được thu âm.", audio: "part4/8.wav" },
+        ]
+      }
+    ]
+  },
+  {
+    icon: "🎯", label: "Trạng từ vị trí",
+    focus: `<em>simply</em> — chỉ đơn giản là... (ảnh hưởng phía SAU)`,
+    audio: "g4.wav",
+    sections: [
+      {
+        title: "📖 Giải thích", color: "#f093fb",
+        text: `<span class="hl-word" style="background:#fce7f3;color:#9d174d">simply</span> là <strong>trạng từ (adverb)</strong> — trong câu này nó đứng <strong>trước động từ</strong> và bổ nghĩa cho <strong>động từ phía sau</strong> (<em>told</em>).<br><br>
+<strong>→ simply told</strong> = "chỉ đơn giản là kể lại" — nhấn mạnh rằng cách kể chuyện rất đơn giản, không phức tạp.`
+      },
+      {
+        title: "🔧 Vị trí của simply", color: "#f59e0b",
+        structure: `Subject + simply + [verb] → simply ảnh hưởng động từ phía SAU\nOne person simply told a story.\n(→ simply bổ nghĩa cho "told")`
+      },
+      {
+        title: "✏️ Ví dụ", color: "#10b981",
+        examples: [
+          { en: "One person simply told a story to others.", vn: "Một người chỉ đơn giản kể một câu chuyện cho người khác.", audio: "part4/9.wav" },
+          { en: "I simply don't know the answer.", vn: "Tôi đơn giản là không biết câu trả lời.", audio: "part4/10.wav" },
+        ]
+      }
+    ]
+  },
+  {
+    icon: "📚", label: "Cụm danh từ",
+    focus: `<em>a book of the old fairy tales</em> vs <em>Children's Tales</em>`,
+    audio: "g5.wav",
+    sections: [
+      {
+        title: "📖 Giải thích", color: "#4facfe",
+        text: `<span class="hl-word" style="background:#e0f2fe;color:#075985">a book of the old fairy tales</span> = mô tả <strong>nội dung bên trong</strong> cuốn sách — "một cuốn sách chứa đựng những câu chuyện cổ tích cũ"<br><br>
+<span class="hl-word" style="background:#e0f2fe;color:#075985">Children's Tales</span> = <strong>tên riêng / tựa sách</strong> — đây là tên chính thức mà hai anh em Grimm đặt cho cuốn sách.<br><br>
+<strong>Sự khác biệt:</strong> Cụm đầu mô tả nội dung chung, cụm sau là tên gọi cụ thể.`
+      },
+      {
+        title: "✏️ Ví dụ", color: "#10b981",
+        examples: [
+          { en: "They wrote a book of the old fairy tales.", vn: "Họ viết một cuốn sách về những truyện cổ tích cũ.", audio: "part4/11.wav" },
+          { en: "They called their book Children's Tales.", vn: "Họ đặt tên cuốn sách là Chuyện Kể Cho Trẻ Em.", audio: "part4/12.wav" },
+        ]
+      }
+    ]
+  },
+  {
+    icon: "⚠️", label: "Phó từ chỉ mức độ",
+    focus: `<em>too</em> trong "too scary for children" — quá... đến mức không được`,
+    audio: "g6.wav",
+    sections: [
+      {
+        title: "📖 Giải thích", color: "#ef4444",
+        text: `<span class="hl-word" style="background:#fee2e2;color:#7f1d1d">too</span> = <strong>"quá"</strong> theo nghĩa <strong>tiêu cực</strong> — vượt quá giới hạn cho phép, <em>gây ra vấn đề</em>.<br><br>
+<strong>too scary</strong> = quá đáng sợ (đến mức không phù hợp)<br><br>
+⚠️ Đừng nhầm với <strong>very</strong> (rất) — <em>very scary</em> chỉ mức độ cao nhưng không có ý tiêu cực.`
+      },
+      {
+        title: "🔧 Công thức", color: "#f59e0b",
+        structure: `too + [adjective] + for + [noun/pronoun]\ntoo + [adjective] + to + [verb]\nThe stories were too scary for children.\n(= quá đáng sợ → trẻ em không nên đọc)`
+      },
+      {
+        title: "✏️ Ví dụ", color: "#10b981",
+        examples: [
+          { en: "The stories were too scary for children.", vn: "Những câu chuyện quá đáng sợ đối với trẻ em.", audio: "part4/13.wav" },
+          { en: "This bag is too heavy to carry.", vn: "Chiếc túi này quá nặng để mang.", audio: "part4/14.wav" },
+          { en: "She is very tall. (positive — no problem)", vn: "Cô ấy rất cao. (trung lập, không có vấn đề)", audio: "part4/15.wav" },
+        ]
+      }
+    ]
+  },
+  {
+    icon: "⏩", label: "Cụm nối thời gian",
+    focus: `<em>So later on,</em> — Vì vậy về sau...`,
+    audio: "g7.wav",
+    sections: [
+      {
+        title: "📖 Giải thích", color: "#a855f7",
+        text: `<span class="hl-word" style="background:#ede9fe;color:#5b21b6">So</span> = <strong>vì vậy, do đó</strong> — nối nguyên nhân → kết quả<br><br>
+<span class="hl-word" style="background:#ede9fe;color:#5b21b6">later on</span> = <strong>về sau, sau đó một thời gian</strong><br><br>
+Kết hợp: <strong>So later on,</strong> = "Vì vậy về sau đó," — dùng để nói về một hành động xảy ra <em>sau</em> một vấn đề đã được đề cập, thường bắt đầu câu mới.`
+      },
+      {
+        title: "🔧 Cách dùng", color: "#f59e0b",
+        structure: `[Tình huống/Nguyên nhân]. So later on, [Kết quả / Hành động tiếp theo].\n\nReaders weren't happy. So later on, the Grimm Brothers wrote a different book.`
+      },
+      {
+        title: "✏️ Ví dụ", color: "#10b981",
+        examples: [
+          { en: "So later on, the Grimm Brothers wrote a different book.", vn: "Vì vậy về sau, hai anh em Grimm đã viết một cuốn sách khác.", audio: "part4/16.wav" },
+          { en: "I failed the test. So later on, I studied harder.", vn: "Tôi thi trượt. Vì vậy về sau, tôi học chăm chỉ hơn.", audio: "part4/17.wav" },
+        ]
+      }
+    ]
+  },
+  {
+    icon: "➡️", label: "Cụm nối kết quả",
+    focus: `<em>After that,</em> — Sau đó...`,
+    audio: "g8.wav",
+    sections: [
+      {
+        title: "📖 Giải thích", color: "#22c55e",
+        text: `<span class="hl-word" style="background:#dcfce7;color:#14532d">After that,</span> = <strong>"Sau đó,"</strong> — dùng để tiếp nối sự kiện theo <strong>trình tự thời gian</strong>.<br><br>
+Khác với <em>So later on</em>: <strong>After that</strong> chỉ nói đến <em>thứ tự</em>, không nhấn mạnh nguyên nhân-kết quả.`
+      },
+      {
+        title: "🔧 So sánh", color: "#f59e0b",
+        structure: `After that, = sau sự kiện vừa nêu (thứ tự thời gian)\nSo later on, = vì vậy về sau (nguyên nhân → kết quả)\nThen, = rồi sau đó (thứ tự ngắn gọn)`
+      },
+      {
+        title: "✏️ Ví dụ", color: "#10b981",
+        examples: [
+          { en: "After that, many writers wrote down fairy tales.", vn: "Sau đó, nhiều nhà văn đã viết lại truyện cổ tích.", audio: "part4/18.wav" },
+          { en: "We ate dinner. After that, we watched a movie.", vn: "Chúng tôi ăn tối. Sau đó, chúng tôi xem phim.", audio: "part4/19.wav" },
+        ]
+      }
+    ]
+  },
+  {
+    icon: "✍️", label: "Cụm động từ",
+    focus: `<em>write down</em> — ghi xuống / viết lại`,
+    audio: "g9.wav",
+    sections: [
+      {
+        title: "📖 Giải thích", color: "#f97316",
+        text: `<span class="hl-word" style="background:#fff7ed;color:#7c2d12">write</span> = viết (nói chung)<br>
+<span class="hl-word" style="background:#fff7ed;color:#7c2d12">write down</span> = <strong>viết xuống, ghi lại</strong> — nhấn mạnh hành động <em>lưu lại trên giấy</em> để không bị quên.<br><br>
+<strong>down</strong> ở đây là <em>tiểu từ (particle)</em> làm thay đổi nghĩa của động từ.`
+      },
+      {
+        title: "🔧 Vị trí của down", color: "#f59e0b",
+        structure: `write down + [something]  → write down the story\nwrite [something] down  → write the story down\n(Cả hai đều đúng!)`
+      },
+      {
+        title: "✏️ Ví dụ", color: "#10b981",
+        examples: [
+          { en: "Many writers wrote down fairy tales.", vn: "Nhiều nhà văn đã ghi lại truyện cổ tích.", audio: "part4/20.wav" },
+          { en: "Please write down your name.", vn: "Hãy ghi lại tên của bạn.", audio: "part4/21.wav" },
+        ]
+      }
+    ]
+  },
+  {
+    icon: "😊", label: "Tính từ / Động từ",
+    focus: `<em>enjoyed</em> — thích thú (V quá khứ + tính từ)`,
+    audio: "g10.wav",
+    sections: [
+      {
+        title: "📖 Giải thích", color: "#ec4899",
+        text: `<span class="hl-word" style="background:#fdf2f8;color:#831843">enjoy</span> là <strong>động từ ngoại động từ (transitive verb)</strong> — luôn cần tân ngữ phía sau.<br><br>
+Ngoài ra, <span class="hl-word" style="background:#fdf2f8;color:#831843">enjoyable</span> (tính từ) và <span class="hl-word" style="background:#fdf2f8;color:#831843">enjoyment</span> (danh từ) cùng gốc.<br><br>
+<strong>enjoyed + V-ing</strong> (gerund): <em>"enjoyed speaking"</em> = thích thú khi nói/đọc lời thoại.`
+      },
+      {
+        title: "🔧 Quy tắc enjoy + V-ing", color: "#f59e0b",
+        structure: `enjoy + V-ing  (KHÔNG dùng enjoy + to V)\n✅ They enjoyed speaking the lines.\n❌ They enjoyed to speak the lines.`
+      },
+      {
+        title: "✏️ Ví dụ", color: "#10b981",
+        examples: [
+          { en: "Famous actors enjoyed speaking characters' lines.", vn: "Những diễn viên nổi tiếng thích đọc lời thoại nhân vật.", audio: "part4/22.wav" },
+          { en: "I enjoy watching funny movies.", vn: "Tôi thích xem phim hài.", audio: "part4/23.wav" },
+          { en: "She enjoys reading fairy tales.", vn: "Cô ấy thích đọc truyện cổ tích.", audio: "part4/24.wav" },
+        ]
+      },
+      {
+        title: "⚠️ Lưu ý", color: "#f97316",
+        note: `Các động từ tương tự luôn đi với V-ing: <strong>like, love, hate, finish, stop, avoid, keep, mind</strong>`
+      }
+    ]
+  },
+  {
+    icon: "🔗", label: "Giới từ",
+    focus: `<em>based on</em> — dựa trên`,
+    audio: "g11.wav",
+    sections: [
+      {
+        title: "📖 Giải thích", color: "#14b8a6",
+        text: `<span class="hl-word" style="background:#ccfbf1;color:#134e4a">based on</span> = <strong>"dựa trên, lấy cảm hứng từ"</strong> — cụm giới từ dùng để nói về nguồn gốc, nền tảng của một tác phẩm.<br><br>
+Thường dùng trong các thể loại: phim, sách, trò chơi dựa trên câu chuyện có sẵn.`
+      },
+      {
+        title: "✏️ Ví dụ", color: "#10b981",
+        examples: [
+          { en: "Other movies based on fairy tales followed.", vn: "Những bộ phim khác dựa trên truyện cổ tích tiếp tục ra đời.", audio: "part4/25.wav" },
+          { en: "This movie is based on a true story.", vn: "Bộ phim này dựa trên câu chuyện có thật.", audio: "part4/26.wav" },
+          { en: "The game is based on a popular book.", vn: "Trò chơi này dựa trên một cuốn sách nổi tiếng.", audio: "part4/27.wav" },
+        ]
+      }
+    ]
+  },
+  {
+    icon: "📌", label: "Đuôi -ed trong tính từ/động từ",
+    focus: `<em>fairy tales followed</em> — tại sao "followed" thêm -ed?`,
+    audio: "g12.wav",
+    sections: [
+      {
+        title: "📖 Giải thích", color: "#8b5cf6",
+        text: `<span class="hl-word" style="background:#ede9fe;color:#4c1d95">followed</span> = dạng <strong>quá khứ đơn (past simple)</strong> của <em>follow</em> = đến sau, tiếp nối.<br><br>
+<strong>Quy tắc thêm -ed:</strong> Động từ có quy tắc (regular verb) thêm <strong>-ed</strong> ở thì quá khứ đơn và dạng phân từ 2 (past participle).<br><br>
+<em>follow → followed</em> · <em>enjoy → enjoyed</em> · <em>call → called</em>`
+      },
+      {
+        title: "🔧 Quy tắc thêm -ed", color: "#f59e0b",
+        structure: `Thường: + ed  → follow → followed\nKết thúc -e: + d  → like → liked\nKết thúc phụ âm+y: y→i + ed  → study → studied\nKết thúc CVC ngắn: nhân đôi + ed  → stop → stopped`
+      },
+      {
+        title: "✏️ Ví dụ", color: "#10b981",
+        examples: [
+          { en: "Other movies based on fairy tales followed.", vn: "Những bộ phim khác dựa trên truyện cổ tích tiếp tục ra đời.", audio: "part4/28.wav" },
+          { en: "Many people enjoyed it.", vn: "Nhiều người đã thích nó.", audio: "part4/29.wav" },
+        ]
+      }
+    ]
+  },
+  {
+    icon: "👥", label: "Cụm danh từ",
+    focus: `<em>the same kinds of characters</em> — cùng kiểu nhân vật`,
+    audio: "g13.wav",
+    sections: [
+      {
+        title: "📖 Giải thích", color: "#6366f1",
+        text: `<span class="hl-word" style="background:#e0e7ff;color:#312e81">the same</span> = <strong>cùng, giống nhau</strong> (luôn đi với <em>the</em>)<br>
+<span class="hl-word" style="background:#e0e7ff;color:#312e81">kinds of</span> = <strong>loại, kiểu</strong> (danh từ số nhiều)<br>
+<span class="hl-word" style="background:#e0e7ff;color:#312e81">characters</span> = <strong>nhân vật</strong><br><br>
+<strong>the same kinds of</strong> = cùng những kiểu/loại... (nhấn mạnh sự giống nhau về thể loại)`
+      },
+      {
+        title: "🔧 Cấu trúc", color: "#f59e0b",
+        structure: `the same + kind/kinds of + [noun]\nthe same kind of story = cùng kiểu chuyện\nthe same kinds of characters = cùng những kiểu nhân vật`
+      },
+      {
+        title: "✏️ Ví dụ", color: "#10b981",
+        examples: [
+          { en: "Many movies have the same kinds of characters.", vn: "Nhiều bộ phim có cùng kiểu nhân vật.", audio: "part4/30.wav" },
+          { en: "We like the same kind of music.", vn: "Chúng tôi thích cùng loại nhạc.", audio: "part4/31.wav" },
+        ]
+      }
+    ]
+  },
+  {
+    icon: "⏰", label: "Thì hiện tại hoàn thành",
+    focus: `<em>times have changed</em> — thời đại đã thay đổi (và vẫn còn)`,
+    audio: "g14.wav",
+    sections: [
+      {
+        title: "📖 Giải thích", color: "#f97316",
+        text: `Dùng <strong>hiện tại hoàn thành (present perfect)</strong> = <em>have/has + past participle</em><br><br>
+<span class="hl-word" style="background:#fff7ed;color:#7c2d12">have changed</span> = <strong>"đã thay đổi"</strong> — nhấn mạnh sự thay đổi xảy ra trong <em>quá khứ</em> và <strong>kết quả vẫn còn tác động đến hiện tại</strong>.<br><br>
+Khác với quá khứ đơn: <em>Times changed.</em> (chỉ nói việc xảy ra, không liên quan hiện tại)`
+      },
+      {
+        title: "🔧 Công thức", color: "#f59e0b",
+        structure: `Subject + have/has + past participle\ntimes (plural) → have changed\nthe world (singular) → has changed`
+      },
+      {
+        title: "✏️ Ví dụ", color: "#10b981",
+        examples: [
+          { en: "But times have changed.", vn: "Nhưng thời đại đã thay đổi.", audio: "part4/32.wav" },
+          { en: "Technology has changed our lives.", vn: "Công nghệ đã thay đổi cuộc sống của chúng ta.", audio: "part4/33.wav" },
+          { en: "Many things have changed since then.", vn: "Nhiều thứ đã thay đổi từ đó đến nay.", audio: "part4/34.wav" },
+        ]
+      }
+    ]
+  },
+  {
+    icon: "🔄", label: "Thì hiện tại tiếp diễn",
+    focus: `<em>are rewriting</em> — đang viết lại (lúc này / xu hướng hiện tại)`,
+    audio: "g15.wav",
+    sections: [
+      {
+        title: "📖 Giải thích", color: "#0ea5e9",
+        text: `<span class="hl-word" style="background:#e0f2fe;color:#0c4a6e">are rewriting</span> = <strong>thì hiện tại tiếp diễn (present continuous)</strong> = <em>are + V-ing</em><br><br>
+Ở đây không có nghĩa "đang làm lúc này" mà dùng để nói về <strong>xu hướng / trào lưu đang diễn ra</strong> trong thời điểm hiện tại.<br><br>
+<em>re-</em> + write = viết lại (tiền tố <em>re-</em> = làm lại)`
+      },
+      {
+        title: "🔧 Công thức", color: "#f59e0b",
+        structure: `Subject + am/is/are + V-ing\nAuthors (plural) → are rewriting\nShe (singular) → is rewriting`
+      },
+      {
+        title: "✏️ Ví dụ", color: "#10b981",
+        examples: [
+          { en: "Now authors are rewriting the traditional tales.", vn: "Bây giờ các tác giả đang viết lại những câu chuyện truyền thống.", audio: "part4/35.wav" },
+          { en: "She is rewriting her story.", vn: "Cô ấy đang viết lại câu chuyện của mình.", audio: "part4/36.wav" },
+        ]
+      }
+    ]
+  },
+  {
+    icon: "🤔", label: "Trạng từ tình thái",
+    focus: `<em>Maybe</em> — Có thể, Có lẽ (50%)`,
+    audio: "g16.wav",
+    sections: [
+      {
+        title: "📖 Giải thích", color: "#d946ef",
+        text: `<span class="hl-word" style="background:#fdf4ff;color:#701a75">Maybe</span> = <strong>"Có thể, Có lẽ"</strong> — dùng khi không chắc chắn (<em>khoảng 50%</em>).<br><br>
+<strong>Maybe</strong> thường đứng <strong>đầu câu</strong>. Sau <em>maybe</em> dùng <strong>mệnh đề bình thường (không dùng trợ động từ "may")</strong>.`
+      },
+      {
+        title: "🔧 So sánh", color: "#f59e0b",
+        structure: `Maybe + [mệnh đề]  → Maybe she isn't pretty.\n[Subject] + may + [V]  → She may not be pretty.\n(Hai cách diễn đạt tương đương!)`
+      },
+      {
+        title: "✏️ Ví dụ", color: "#10b981",
+        examples: [
+          { en: "Maybe the princess isn't pretty, but she's smart.", vn: "Có thể công chúa không xinh đẹp, nhưng cô ấy thông minh.", audio: "part4/37.wav" },
+          { en: "Maybe he likes action movies.", vn: "Có thể anh ấy thích phim hành động.", audio: "part4/38.wav" },
+          { en: "Maybe it will rain tomorrow.", vn: "Có thể ngày mai trời sẽ mưa.", audio: "part4/39.wav" },
+        ]
+      }
+    ]
+  },
+  {
+    icon: "💪", label: "Cấu trúc want to + V",
+    focus: `<em>wants to do</em> — muốn làm (gì đó)`,
+    audio: "g17.wav",
+    sections: [
+      {
+        title: "📖 Giải thích", color: "#65a30d",
+        text: `<span class="hl-word" style="background:#f7fee7;color:#365314">want to do</span> = <strong>"muốn làm"</strong> — <em>want</em> luôn đi với <strong>to + V (động từ nguyên thể)</strong>.<br><br>
+<em>wants</em> = thêm <strong>-s</strong> vì chủ ngữ ngôi 3 số ít (<em>she</em>).`
+      },
+      {
+        title: "🔧 Công thức", color: "#f59e0b",
+        structure: `I/You/We/They + want + to + V\nHe/She/It + wants + to + V\n\nShe wants to do amazing things.\nI want to be famous.`
+      },
+      {
+        title: "✏️ Ví dụ", color: "#10b981",
+        examples: [
+          { en: "She wants to do amazing things.", vn: "Cô ấy muốn làm những điều tuyệt vời.", audio: "part4/40.wav" },
+          { en: "I want to be a famous actor.", vn: "Tôi muốn trở thành một diễn viên nổi tiếng.", audio: "part4/41.wav" },
+          { en: "He wants to learn English.", vn: "Anh ấy muốn học tiếng Anh.", audio: "part4/42.wav" },
+        ]
+      },
+      {
+        title: "⚠️ Lưu ý", color: "#f97316",
+        note: `<strong>want to</strong> (muốn làm) khác <strong>want + noun</strong> (muốn cái gì):<br>
+<em>I want to a book.</em> ❌ → <em>I want a book.</em> ✅<br>
+<em>I want to read a book.</em> ✅`
+      }
+    ]
+  },
+  {
+    icon: "↔️", label: "Cụm danh từ",
+    focus: `<em>Both types of stories</em> — Cả hai loại câu chuyện`,
+    audio: "g18.wav",
+    sections: [
+      {
+        title: "📖 Giải thích", color: "#0891b2",
+        text: `<span class="hl-word" style="background:#cffafe;color:#164e63">Both</span> = <strong>"cả hai"</strong> — dùng khi nói về đúng <em>2 thứ/người/nhóm</em>.<br><br>
+<span class="hl-word" style="background:#cffafe;color:#164e63">types of</span> = <strong>loại, kiểu</strong> (tương tự <em>kinds of</em>)<br><br>
+<strong>Both + noun (số nhiều)</strong> → <strong>Both types of stories</strong> = Cả hai loại câu chuyện`
+      },
+      {
+        title: "🔧 Cấu trúc Both", color: "#f59e0b",
+        structure: `Both + [noun số nhiều]  → Both stories are great.\nBoth + [noun] + and + [noun]  → Both Jack and Jill are here.\nBoth of + [the/these/those + noun]  → Both of the books are good.`
+      },
+      {
+        title: "✏️ Ví dụ", color: "#10b981",
+        examples: [
+          { en: "Both types of stories, traditional and modern, are great.", vn: "Cả hai loại câu chuyện, truyền thống và hiện đại, đều tuyệt vời.", audio: "part4/43.wav" },
+          { en: "Both children enjoyed the movie.", vn: "Cả hai đứa trẻ đều thích bộ phim.", audio: "part4/44.wav" },
+        ]
+      }
+    ]
+  },
+  {
+    icon: "❓", label: "Câu hỏi lựa chọn",
+    focus: `<em>Which do you prefer?</em> — Bạn thích cái nào hơn?`,
+    audio: "g19.wav",
+    sections: [
+      {
+        title: "📖 Giải thích", color: "#8b5cf6",
+        text: `<span class="hl-word" style="background:#ede9fe;color:#4c1d95">Which</span> = <strong>"cái nào, loại nào"</strong> — dùng khi có <em>giới hạn lựa chọn</em> cụ thể.<br><br>
+<span class="hl-word" style="background:#ede9fe;color:#4c1d95">prefer</span> = <strong>"thích hơn"</strong> — so sánh sở thích giữa 2 thứ trở lên.<br><br>
+Khác với <em>What</em>: <strong>Which</strong> dùng khi lựa chọn giới hạn (<em>"Loại nào trong 2 loại?"</em>), <strong>What</strong> khi không giới hạn (<em>"Bạn thích loại phim nào?"</em>)`
+      },
+      {
+        title: "🔧 Cấu trúc prefer", color: "#f59e0b",
+        structure: `Which do you prefer? (= Bạn thích cái nào hơn?)\nI prefer A (to B). = Tôi thích A hơn (B).\nI prefer A over B. = Tôi thích A hơn B.\nDo you prefer A or B? = Bạn thích A hay B?`
+      },
+      {
+        title: "✏️ Ví dụ", color: "#10b981",
+        examples: [
+          { en: "Which do you prefer — traditional or modern stories?", vn: "Bạn thích loại nào hơn — truyện truyền thống hay hiện đại?", audio: "part4/45.wav" },
+          { en: "I prefer modern stories. They're cooler!", vn: "Tôi thích truyện hiện đại hơn. Chúng ngầu hơn!", audio: "part4/46.wav" },
+          { en: "Which actor do you prefer?", vn: "Bạn thích diễn viên nào hơn?", audio: "part4/47.wav" },
+        ]
+      }
+    ]
+  },
+];
+
+// ============ RENDER GRAMMAR ============
+function renderGrammar() {
+  const list = document.getElementById('grammarList');
+  grammarItems.forEach((g, i) => {
+    const colorIdx = i % 20;
+    let bodyHTML = '';
+    g.sections.forEach(sec => {
+      bodyHTML += `<div class="gram-section">`;
+      bodyHTML += `<div class="gram-section-title" style="color:${sec.color}">${sec.title}</div>`;
+      if (sec.text) bodyHTML += `<div class="gram-explain">${sec.text}</div>`;
+      if (sec.structure) bodyHTML += `<div class="gram-structure-box">${sec.structure.replace(/\n/g,'<br>')}</div>`;
+      if (sec.note) bodyHTML += `<div class="gram-note">${sec.note}</div>`;
+      if (sec.examples) {
+        bodyHTML += `<div class="gram-example-box">`;
+        sec.examples.forEach((ex, ei) => {
+          bodyHTML += `
+            <div class="gram-example-row">
+              <button class="play-btn-g" onclick="playAudio('${ex.audio}',this)">
+                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+              <div>
+                <div class="gram-ex-text">${ex.en}</div>
+                <div class="gram-ex-vn">🇻🇳 ${ex.vn}</div>
+              </div>
+            </div>`;
+          if (ei < sec.examples.length - 1) bodyHTML += `<hr style="border:none;border-top:1px dashed #c7d2fe;margin:0.4rem 0">`;
+        });
+        bodyHTML += `</div>`;
+      }
+      bodyHTML += `</div>`;
+    });
+
+    list.innerHTML += `
+      <div class="gram-card gc-${colorIdx}" id="gc${i}">
+        <div class="gram-header" onclick="toggleGram(${i})">
+          <div class="gram-icon">${g.icon}</div>
+          <div class="gram-title-block">
+            <div class="gram-label">${g.label}</div>
+            <div class="gram-focus">${g.focus}</div>
+          </div>
+          <button class="play-btn-g" onclick="event.stopPropagation();playAudio('${g.audio}',this)" style="margin-right:0.4rem">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <div class="gram-toggle-icon">▼</div>
+        </div>
+        <div class="gram-body">${bodyHTML}</div>
+      </div>`;
+  });
+}
+
+function toggleGram(i) {
+  const card = document.getElementById('gc' + i);
+  card.classList.toggle('open');
+}
+
+
+function renderVocab() {
+  const grid = document.getElementById('vocabGrid');
+  vocab.forEach((v, i) => {
+    const emoji = wordEmojis[v.word] || "📝";
+    grid.innerHTML += `
+      <div class="vocab-card vc-${i % 14}" style="animation-delay:${i*0.06}s">
+        <span class="vocab-num">${String(i+1).padStart(2,'0')}</span>
+        <div class="vocab-top">
+          <div class="vocab-img no-img" id="img${i}">
+            <span id="imgEmoji${i}">${emoji}</span>
+            <img src="${v.img}" alt="${v.word}" onload="this.style.display='block';this.previousElementSibling.style.display='none'" onerror="this.style.display='none'" />
+          </div>
+          <div class="vocab-info">
+            <div class="vocab-word">${v.word} <span class="word-type">${v.type}</span></div>
+            <div class="vocab-ipa">${v.ipa}</div>
+            <div class="vocab-audio-row">
+              <button class="play-btn" onclick="playAudio('${v.audio}', this)" title="Play word">
+                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                Play
+                <span class="filename-tag">${v.audio}</span>
+              </button>
+              <button class="vn-toggle-btn" onclick="toggleVN('vnw${i}', this)" title="Hiện tiếng Việt">
+                <span class="vn-flag">🇻🇳</span> Nghĩa
+              </button>
+            </div>
+            <div class="vn-text" id="vnw${i}">🇻🇳 ${v.vnWord}</div>
+          </div>
+        </div>
+        <div class="vocab-example">
+          <div class="vocab-example-label">✏️ Example</div>
+          <p>${highlightVocab(v.example, v.word)}</p>
+          <div class="example-audio-row">
+            <button class="play-btn play-btn-ex" onclick="playAudio('${v.exAudio}', this)" title="Play example">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              Listen
+              <span class="filename-tag">${v.exAudio}</span>
+            </button>
+            <button class="vn-toggle-btn" onclick="toggleVN('vne${i}', this)" title="Hiện tiếng Việt">
+              <span class="vn-flag">🇻🇳</span> Dịch
+            </button>
+          </div>
+          <div class="vn-text" id="vne${i}">🇻🇳 ${v.vnExample}</div>
+        </div>
+      </div>`;
+  });
+}
+
+function highlightVocab(sentence, word) {
+  const bare = word.replace(/^(A |An )/i,'');
+  const regex = new RegExp(`\\b(${bare})\\b`, 'gi');
+  return sentence.replace(regex, '<strong style="color:#667eea">$1</strong>');
+}
+
+// ============ RENDER Q&A ============
+function renderQA() {
+  const list = document.getElementById('qaList');
+  qaPairs.forEach((qa, i) => {
+    list.innerHTML += `
+      <div class="qa-card" style="animation-delay:${i*0.08}s">
+        <div class="qa-question-block">
+          <div class="qa-q-icon">Q</div>
+          <div style="flex:1">
+            <div class="qa-q-text">${qa.emoji} ${qa.q}</div>
+            <div class="vn-text-q" id="vnq${i}">🇻🇳 ${qa.qVn}</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:0.35rem;flex-shrink:0;align-items:flex-end">
+            <button class="play-btn play-btn-q" onclick="playAudio('${qa.qAudio}', this)">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              <span class="filename-tag">${qa.qAudio}</span>
+            </button>
+            <button class="vn-toggle-btn" onclick="toggleVN('vnq${i}', this)" style="font-size:0.68rem;padding:0.2rem 0.6rem">
+              <span class="vn-flag">🇻🇳</span> Dịch
+            </button>
+          </div>
+        </div>
+        <div class="qa-answer-block">
+          <div class="qa-a-icon">A</div>
+          <div class="qa-a-content">
+            <div class="qa-a-text">${qa.a}</div>
+            <div class="vn-text-a" id="vna${i}">🇻🇳 ${qa.aVn}</div>
+            <div class="qa-audio-row">
+              <button class="play-btn play-btn-a" onclick="playAudio('${qa.aAudio}', this)">
+                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                Listen
+                <span class="filename-tag">${qa.aAudio}</span>
+              </button>
+              <button class="vn-toggle-btn" onclick="toggleVN('vna${i}', this)" style="font-size:0.68rem;padding:0.2rem 0.6rem">
+                <span class="vn-flag">🇻🇳</span> Dịch
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>`;
+  });
+}
+
+// ============ RENDER PASSAGE ============
+function renderPassage() {
+  const box = document.getElementById('passageBox');
+  passage.forEach((s, i) => {
+    box.innerHTML += `
+      <div class="passage-sentence">
+        <div class="ps-audio">
+          <button class="play-btn-p" onclick="playAudio('${s.audio}', this)" title="${s.audio}">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+        </div>
+        <div class="ps-content">
+          <div class="ps-text">${highlightPassage(s.text)}</div>
+          <div class="vn-text-p" id="vnp${i}">🇻🇳 ${s.vn}</div>
+          <button class="vn-btn-p" onclick="toggleVN('vnp${i}', this)">
+            <span>🇻🇳</span> Dịch
+          </button>
+        </div>
+      </div>
+      ${i < passage.length - 1 ? '<div class="passage-divider"></div>' : ''}`;
+  });
+}
+
+const highlightWords = ['wonderful','talented','popular','amazing','funny','cool','famous','great','brave','pretty','handsome','exciting'];
+function highlightPassage(text) {
+  let result = text;
+  highlightWords.forEach(w => {
+    const r = new RegExp(`\\b(${w})\\b`, 'gi');
+    result = result.replace(r, '<strong>$1</strong>');
+  });
+  return result;
+}
+
+// ============ VIETNAMESE TOGGLE ============
+function toggleVN(id, btn) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const isShow = el.classList.toggle('show');
+  btn.classList.toggle('active', isShow);
+  btn.querySelector('.vn-flag') && (btn.innerHTML = isShow
+    ? '<span class="vn-flag">🇻🇳</span> Ẩn'
+    : '<span class="vn-flag">🇻🇳</span> ' + (btn.dataset.label || 'Dịch'));
+  if (!btn.dataset.label) btn.dataset.label = btn.textContent.replace('🇻🇳','').trim() || 'Dịch';
+}
+
+// ============ AUDIO ============
+let currentAudio = null;
+let currentBtn = null;
+
+function playAudio(filename, btn) {
+  // Stop current
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+    if (currentBtn) currentBtn.classList.remove('playing');
+  }
+
+  if (currentBtn === btn && currentAudio && !currentAudio.paused) {
+    currentAudio = null; currentBtn = null; return;
+  }
+
+  const audio = new Audio(filename);
+  currentAudio = audio;
+  currentBtn = btn;
+  btn.classList.add('playing');
+
+  audio.play().catch(() => {
+    // File not found - show visual feedback only
+    btn.style.background = 'linear-gradient(135deg,#f59e0b,#ef4444)';
+    setTimeout(() => { btn.style.background = ''; btn.classList.remove('playing'); }, 800);
+  });
+
+  audio.onended = () => {
+    btn.classList.remove('playing');
+    if (currentBtn === btn) { currentAudio = null; currentBtn = null; }
+    spawnConfetti();
+  };
+}
+
+// ============ TABS ============
+function showSection(num, clickedBtn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById('section' + num).classList.add('active');
+
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    b.className = 'tab-btn';
+  });
+  clickedBtn.classList.add('active-' + num);
+  updateProgress();
+}
+
+// ============ FLOATING STARS ============
+function createStars() {
+  const container = document.getElementById('stars');
+  const emojis = ['⭐','🌟','✨','💫','🌈','🎵','🎀','🦋'];
+  for (let i = 0; i < 18; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
+    star.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    star.style.left = Math.random() * 100 + 'vw';
+    star.style.animationDuration = (8 + Math.random() * 12) + 's';
+    star.style.animationDelay = (Math.random() * 10) + 's';
+    star.style.fontSize = (0.8 + Math.random() * 1.2) + 'rem';
+    container.appendChild(star);
+  }
+}
+
+// ============ CONFETTI ============
+function spawnConfetti() {
+  const container = document.getElementById('confettiContainer');
+  const colors = ['#FFD93D','#FF6B35','#FF6FA8','#A855F7','#3B82F6','#22C55E'];
+  for (let i = 0; i < 8; i++) {
+    const el = document.createElement('div');
+    el.style.cssText = `
+      position:absolute;
+      width:8px;height:8px;
+      background:${colors[Math.floor(Math.random()*colors.length)]};
+      border-radius:50%;
+      left:${Math.random()*100}%;
+      top:${Math.random()*80+10}%;
+      animation:confettiFly 1s ease-out forwards;
+      opacity:1;
+    `;
+    container.appendChild(el);
+    setTimeout(() => el.remove(), 1000);
+  }
+}
+
+// ============ PROGRESS ============
+function updateProgress() {
+  const sections = document.querySelectorAll('.section');
+  let active = 0;
+  sections.forEach((s, i) => { if (s.classList.contains('active')) active = i + 1; });
+  document.getElementById('progressBar').style.width = ((active / sections.length) * 100) + '%';
+}
+
+// ============ INIT ============
+renderVocab();
+renderQA();
+renderPassage();
+renderGrammar();
+createStars();
+updateProgress();
+
+// Add confetti keyframe
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes confettiFly {
+    0% { transform: translateY(0) scale(1) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(-80px) scale(0) rotate(360deg); opacity: 0; }
+  }
+`;
+document.head.appendChild(style);
+</script>
+</body>
+</html>
